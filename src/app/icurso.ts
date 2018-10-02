@@ -5,4 +5,7 @@ export interface ICurso {
     horas: number;
     precio: number;
     docente: IDocente;
+    inicio: string;
+    fin: string;
+    estado: string;
 }

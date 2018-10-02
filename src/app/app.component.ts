@@ -21,10 +21,13 @@ var curso = <ICurso> {
                         nombre:'Desarrolo Web con Angular',
                         horas: 24, 
                         precio: 3000,
-                        docente: docente 
+                        docente: docente ,
+                        inicio: '10/09/2018',
+                        fin: '19/11/2018',
+                        estado: 'pendiente'
                       };
 var alumno = <IAlumno>{nombre: 'Paula',
                       apellido: 'Rives', 
-                      cursos: [curso] };
+                      cursos: [curso], };
 
 
