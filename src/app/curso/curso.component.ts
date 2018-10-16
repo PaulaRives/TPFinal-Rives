@@ -23,11 +23,11 @@ export class CursoComponent implements OnInit {
 
   public cambiarEstado(event): void {
     this.cambiarEstadoCursoEvent.emit(event.target.value);
-    if(event.target.value == "Activo"){
+    if(event.target.value == "1"){
       this.isActive = true;
       this.isInactive = false;
     }
-    else if (event.target.value == "Inactivo"){
+    else if (event.target.value == "2"){
       this.isActive = false;
       this.isInactive = true;
     }
