@@ -1,0 +1,9 @@
+
+
+:host(.isActive .jumbotron) {
+    background-color: rgb(72, 161, 20);
+  }
+:host(.isInactive .jumbotron) {
+background-color: rgb(255, 109, 109);
+}
+
