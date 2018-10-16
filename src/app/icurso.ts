@@ -1,11 +1,12 @@
-import { IDocente } from "./idocente";
+import { Estado } from "./estado.enum";
 
 export interface ICurso {
-    nombre: string;
-    horas: number;
-    precio: number;
-    docente: IDocente;
-    inicio: string;
-    fin: string;
-    estado: string;
+    id: number;
+    titulo: string;
+    fechaInicio: number;
+    fechaFin: number;
+    asistentes: Array<string>;
+    profesor: Array<string>;
+    laboratorio: number;
+    estado: Estado;
 }

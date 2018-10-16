@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IAlumno } from './ialumno';
 import { IDocente } from './idocente';
 import { ICurso } from './icurso';
+import { Estado } from './estado.enum';
 
 @Component({
   selector: 'app-root',
@@ -13,21 +14,33 @@ export class AppComponent {
   alumno = alumno;
   curso = curso;
   docente = docente;
+
+  public cambiarEstadoCurso (value): void {
+    this.curso.estado = <Estado>value;
+  }                   
+      
 }
 
 var docente = <IDocente>{nombre: 'Fernando', 
                         apellido: 'Arias'};
-var curso = <ICurso> { 
-                        nombre:'Desarrolo Web con Angular',
-                        horas: 24, 
-                        precio: 3000,
-                        docente: docente ,
-                        inicio: '10/09/2018',
-                        fin: '19/11/2018',
-                        estado: 'pendiente'
-                      };
+var curso = <ICurso>{id: 22,
+                      titulo: "Angular",
+                      fechaInicio: 1551657600000,
+                      fechaFin: 1549238400000,
+                      asistentes: [
+                          "Jimena Sanchez",
+                          "Joaquín Ferreyra",
+                          "Adolfo Carrasco",
+                          "Juan Ignacio López",
+                          "Nadia de Rosa"
+                      ],
+                      profesor: [
+                          "Fernando Arias"
+                      ],
+                      laboratorio: 7,
+                      estado: <Estado>0} ;
+                      
 var alumno = <IAlumno>{nombre: 'Paula',
                       apellido: 'Rives', 
                       cursos: [curso], };
-
 

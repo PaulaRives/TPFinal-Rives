@@ -1,18 +1,15 @@
-<div>
-    <div>Nombre: {{curso.nombre}}</div>
-    <div>Duracion: {{curso.horas}} hs.</div>
-    <div>Precio: {{curso.precio}}</div>
-    <div>Inicio: {{curso.inicio}}</div>
-    <div>Fin: {{curso.estado}}</div>
+<div class="container">
+  <div class="jumbotron">
+    <h3>Curso</h3>
+    <div>Nombre: {{curso.titulo}}</div>
     <div>Estado: {{curso.estado}}</div>
     <div>Cambiar Estado:</div>
-    <select>
+    <select (change)="cambiarEstado($event)"> 
         <option value="Pendiente">Pendiente</option>
         <option value="Activo">Activo</option>
         <option value="Inactivo">Inactivo</option>
       </select>
-    <div>Docente
-      <app-docente [docente]="curso.docente" ></app-docente>
-    </div>
-    
   </div>
+ </div>
+
+  
