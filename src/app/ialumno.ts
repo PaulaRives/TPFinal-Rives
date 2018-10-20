@@ -1,4 +1,4 @@
-import { ICurso } from "./icurso";
+import { ICurso } from "./curso-module/icurso";
 
 export interface IAlumno {
     nombre: string;
