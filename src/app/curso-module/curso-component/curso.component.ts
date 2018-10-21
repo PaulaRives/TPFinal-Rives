@@ -32,11 +32,12 @@ export class CursoComponent implements OnInit {
   getCurso(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.cursoService.getCurso(id)
-      .subscribe(curso => this.curso = curso);
+      .subscribe(curso => this.curso = curso[0]);
   }
 
   public cambiarEstado(event): void {
-    this.cambiarEstadoCursoEvent.emit(event.target.value);
+    this.curso.estado = <Estado>event.target.value;
+    //this.cambiarEstadoCursoEvent.emit(event.target.value);
     if(event.target.value == "1"){
       this.isActive = true;
       this.isInactive = false;

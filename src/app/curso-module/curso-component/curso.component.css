@@ -1,9 +1,13 @@
 
 
-:host(.isActive .jumbotron) {
-    background-color: rgb(72, 161, 20);
+:host(.isActive .text-curso) {
+  color: #00bc8c !important;
   }
-:host(.isInactive .jumbotron) {
-background-color: rgb(255, 109, 109);
+:host(.isInactive .text-curso) {
+  color: #E74C3C !important;
+}
+
+.text-curso {
+  color: #F39C12 !important;
 }
 

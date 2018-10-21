@@ -1,13 +1,45 @@
 <div class="container">
   <div class="jumbotron">
-    <h4>{{curso.titulo}}</h4>
-    <div>Estado: {{curso.estado}}</div>
-    <span>Cambiar Estado: </span>
-    <select (change)="cambiarEstado($event)"> 
-        <option value="0">Pendiente</option>
-        <option value="1">Activo</option>
-        <option value="2">Inactivo</option>
-      </select>
+    <h3 class="text-curso">{{curso.titulo}}</h3>
+
+    <div>
+      <span class="text-curso">Fecha de Inicio: </span>
+      <span>{{curso.fechaInicio}}</span>
+    </div>
+
+    <div>
+      <span class="text-curso">Fecha de Finalizacion: </span>
+       <span>{{curso.fechaFin}}</span>
+    </div>
+
+    <div>
+      <span class="text-curso">Profesor: </span> 
+      <li *ngFor="let p of curso.profesor">{{p}}</li>
+    </div>
+
+    <div>
+      <span class="text-curso">Asistentes: </span> 
+      <li *ngFor="let a of curso.asistentes">{{a}}</li>
+    </div>
+    
+    <div>
+      <span class="text-curso">Laboratorio: </span> <span>{{curso.laboratorio}}</span>
+    </div>
+
+    <div>
+      <span class="text-curso">Estado: </span> <span>{{curso.estado}}</span>
+    </div>
+
+    <div>
+      <span class="text-curso">Cambiar estado: </span> 
+      <select (change)="cambiarEstado($event)"> 
+          <option value="0">Pendiente</option>
+          <option value="1">Activo</option>
+          <option value="2">Inactivo</option>
+        </select>
+    </div>
+    
+
   </div>
  </div>
   

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { map, tap } from 'rxjs/operators';
+import { map, filter} from 'rxjs/operators';
 import { ICurso } from './icurso';
 
 
@@ -14,6 +14,8 @@ export class CursoService {
     
   }
 
+ 
+
   configUrl = 'cursos.json';
 
 
@@ -21,8 +23,7 @@ export class CursoService {
     return this.http.get<ICurso[]>(this.configUrl).pipe(map(res => res));;
   } 
 
-  getCurso(id: number): Observable<ICurso> {
-    const url = 'cursos.json/' + id;
-    return this.http.get<ICurso>(url)
+  getCurso(id: number){
+    return this.http.get<ICurso[]>(this.configUrl).pipe(map(res => res.filter(r => r.id === id)));
   }
 }
