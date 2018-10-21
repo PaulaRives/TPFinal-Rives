@@ -4,9 +4,22 @@
     Welcome to {{ title }}!
   </h1>
 </div>
+<app-menu-component></app-menu-component>
 <div>
+    <router-outlet></router-outlet>
+</div>
+
+
+<!--<div>
+    <a [routerLink] = "['/cursos']" >Items</a>
+    <router-outlet></router-outlet>
     <app-curso [curso]="curso" (cambiarEstadoCursoEvent)="cambiarEstadoCurso($event)"></app-curso>
     <app-alumno [alumno]="alumno" ></app-alumno>
     <app-docente [docente]="docente"></app-docente>  
-</div>
+</div>-->
+
+
+
+
+
 
