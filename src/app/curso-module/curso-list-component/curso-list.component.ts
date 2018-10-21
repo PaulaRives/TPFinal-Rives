@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ICurso } from '../icurso';
+import { CursoService} from '../curso.service'
+
 
 @Component({
   selector: 'app-curso-list',
@@ -8,11 +10,16 @@ import { ICurso } from '../icurso';
 })
 export class CursoListComponent implements OnInit {
 
-  @Input() cursoLista: Array<ICurso>
+  @Input() cursoLista: ICurso[];
 
-  constructor() { }
+  constructor(private cursoService: CursoService) { }
 
   ngOnInit() {
+    this.getCursos();
+  }
+
+  getCursos(): void {
+    this.cursoService.getCursos().subscribe(c => this.cursoLista = c);
   }
 
 }

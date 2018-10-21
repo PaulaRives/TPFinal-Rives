@@ -1,2 +1,9 @@
-<app-curso *ngFor="let c of cursosList">{{c}}</app-curso>
-<div>aaaa</div>
+<!--<app-curso *ngFor="let curso of cursoLista" [curso]="curso" >}</app-curso>
+<div>aaaa</div>-->
+<div class="container">
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" *ngFor="let curso of cursoLista" routerLink="/curso/{{curso.id}}" > 
+          {{curso.titulo}}
+        </a>
+    </div>
+</div>

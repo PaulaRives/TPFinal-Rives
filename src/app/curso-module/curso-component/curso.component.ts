@@ -1,6 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 import { ICurso } from '../icurso';
 import { Estado } from '../estado.enum';
+import { CursoService} from '../curso.service'
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-curso',
@@ -13,12 +18,21 @@ export class CursoComponent implements OnInit {
   @Output() cambiarEstadoCursoEvent: EventEmitter<string>;
   @HostBinding('class.isActive') isActive: boolean;
   @HostBinding('class.isInactive') isInactive: boolean;
-  constructor() { 
-    this.cambiarEstadoCursoEvent = new EventEmitter();
 
+  constructor(private cursoService: CursoService, 
+    private route: ActivatedRoute,
+    private location: Location) { 
+    this.cambiarEstadoCursoEvent = new EventEmitter();
   }
 
   ngOnInit() {
+    this.getCurso();
+  }
+
+  getCurso(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.cursoService.getCurso(id)
+      .subscribe(curso => this.curso = curso);
   }
 
   public cambiarEstado(event): void {

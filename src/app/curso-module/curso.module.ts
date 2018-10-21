@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 const ROUTES: Routes = [
-  {path: 'curso/id', component: CursoComponent},
+  {path: 'curso/:id', component: CursoComponent},
   {path: 'cursos', component: CursoListComponent}
 ];
 
