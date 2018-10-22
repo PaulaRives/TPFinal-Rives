@@ -2,8 +2,8 @@
 <div>aaaa</div>-->
 <div class="container">
     <div class="list-group">
-        <a class="list-group-item list-group-item-action" (cambiarEstadoCursoEvent)="cambiarEstadoCurso($event)" *ngFor="let curso of cursoLista" routerLink="/curso/{{curso.id}}" > 
-          {{curso.titulo}}
+        <a class="list-group-item list-group-item-action" *ngFor="let curso of cursoLista" routerLink="/curso/{{curso.id}}">
+            {{curso.titulo}}
         </a>
     </div>
 </div>

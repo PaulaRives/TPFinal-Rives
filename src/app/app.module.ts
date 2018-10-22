@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AlumnoComponent } from './alumno/alumno.component';
 import { DocenteComponent } from './docente/docente.component';
-
+import { RoutingModule } from './routing-module/routing.module';
 import { MenuComponentComponent } from './menu-component/menu-component.component';
 import { CursoModule } from './curso-module/curso.module'
 
@@ -19,6 +19,7 @@ import { CursoModule } from './curso-module/curso.module'
   imports: [
     CursoModule,
     BrowserModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

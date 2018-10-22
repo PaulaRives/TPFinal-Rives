@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { map, filter} from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { ICurso } from './icurso';
 
 
@@ -10,20 +10,22 @@ import { ICurso } from './icurso';
 })
 export class CursoService {
 
-  constructor(private http: HttpClient) { 
-    
-  }
+  constructor(private http: HttpClient) {
 
- 
+  }
 
   configUrl = 'cursos.json';
 
+  private getAllCursos(): Observable<ICurso[]> {
+    return this.http.get<ICurso[]>(this.configUrl);
+  }
 
-  getCursos() {
-    return this.http.get<ICurso[]>(this.configUrl).pipe(map(res => res));;
-  } 
 
-  getCurso(id: number){
-    return this.http.get<ICurso[]>(this.configUrl).pipe(map(res => res.filter(r => r.id === id)));
+  getCursos(): Observable<ICurso[]> {
+    return this.getAllCursos();
+  }
+
+  getCurso(id: number) {
+    return this.getAllCursos().pipe(map(res => res.filter(r => r.id === id)));
   }
 }
