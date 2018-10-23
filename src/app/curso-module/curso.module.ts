@@ -4,6 +4,7 @@ import { CursoComponent } from './curso-component/curso.component';
 import { CursoListComponent } from './curso-list-component/curso-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CursoListItemComponent } from './curso-list-item/curso-list-item.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [
     CursoComponent,
-    CursoListComponent
+    CursoListComponent,
+    CursoListItemComponent
   ]
 
 })
