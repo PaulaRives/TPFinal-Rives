@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IAlumno } from './ialumno';
+import { IAlumno } from './alumno-module/ialumno';
 import { IDocente } from './idocente';
 import { ICurso } from './curso-module/icurso';
 import { Estado } from './curso-module/estado.enum';
