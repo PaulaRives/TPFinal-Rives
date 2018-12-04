@@ -14,7 +14,7 @@ export class CursoService {
 
   }
 
-  configUrl = 'cursos.json';
+  configUrl = 'https://demo3744158.mockable.io/cursos';
 
   private getAllCursos(): Observable<ICurso[]> {
     return this.http.get<ICurso[]>(this.configUrl);

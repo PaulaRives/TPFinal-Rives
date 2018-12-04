@@ -5,8 +5,6 @@ import { CursoService } from '../curso.service'
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.component.html',
@@ -36,9 +34,9 @@ export class CursoComponent implements OnInit {
   }
 
   public cambiarEstado(event): void {
-    // this.curso.estado = <Estado>event.target.value;
-    this.cambiarEstadoCursoEvent.emit(event.target.value);
-    /*if (event.target.value == "1") {
+    this.curso.estado = <Estado>event.target.value;
+    //this.cambiarEstadoCursoEvent.emit(event.target.value);
+    if (event.target.value == "1") {
       this.isActive = true;
       this.isInactive = false;
     }
@@ -49,6 +47,6 @@ export class CursoComponent implements OnInit {
     else {
       this.isActive = false;
       this.isInactive = false;
-    }*/
+    }
   }
 }

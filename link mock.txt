@@ -1,0 +1,9 @@
+ https://blog.angular-university.io/how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid/
+
+
+
+Listado de cursos https://demo3744158.mockable.io/cursos
+Listado de alumnos https://demo3744158.mockable.io/alumnos
+POST genérico https://demo3744158.mockable.io/alumno
+PUT genérico https://demo3744158.mockable.io/alumno
+DELETE genérico https://demo3744158.mockable.io/alumno
