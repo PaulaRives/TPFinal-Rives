@@ -1,23 +1,24 @@
 
-<form>
+<form #f="ngForm" [formGroup]="alumnoForm" (ngSubmit)="onSubmit(alumnoForm.value)">
     <div class="container">
   <fieldset>
-    <legend>Legend</legend>
+    <legend>Alta Alumno</legend>
     <div class="form-group">
       <label for="nombreInput">Nombre</label>
-      <input type="text" class="form-control" id="nombreInput" placeholder="Enter email">
+      <input type="text" class="form-control" [formControl]="alumnoForm.controls['nombre']" placeholder="Nombre...">
     </div>
     <div class="form-group">
       <label for="apellidoInput">Apellido</label>
-      <input type="text" class="form-control" id="apellidoInput" placeholder="Enter email">
+      <input type="text" class="form-control" [formControl]="alumnoForm.controls['apellido']" placeholder="Apellido...">
     </div>
     <div class="form-group">
       <label for="fnacput">Fecha de Nacimiento</label>
-      <input type="date" class="form-control" id="Input" placeholder="Enter email">
+      <input type="date" class="form-control" [formControl]="alumnoForm.controls['fechaNacimiento']" placeholder="Email...">
     </div>
     <div class="form-group">
       <label for="exampleSelect1">Tipo de Documento</label>
-      <select class="form-control" id="exampleSelect1">
+      <select class="form-control" [formControl]="alumnoForm.controls['tipoDocumento']" placeholder="Seleccionar...">
+        <option>DNI</option>
         <option>LC</option>
         <option>LE</option>
         <option>Pasaporte</option>
@@ -25,29 +26,26 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="docInput">Nuero de Documento</label>
-      <input type="text" class="form-control" id="docInput">
+      <label for="docInput">Numero de Documento</label>
+      <input type="number" class="form-control" [formControl]="alumnoForm.controls['numeroDocumento']" placeholder="Numero de Documento...">
     </div>
       <div class="form-check form-group">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" value="" checked="">
-          Cominidad UTN
+          <input class="form-check-input" type="checkbox" value="" checked="" [formControl]="alumnoForm.controls['comunidad']">
+          Comunidad UTN
         </label>
       </div>
     <div class="form-group">
-        <label for="legajoInput">Nuero de Documento</label>
-        <input type="text" class="form-control" id="legajoInput">
+        <label for="legajoInput">Numero de Legajo</label>
+        <input type="number" class="form-control" [formControl]="alumnoForm.controls['legajo']" placeholder="Legajo...">
       </div>
     <div class="form-group">
-      <label for="exampleSelect2">Cursos</label>
-      <select multiple="" class="form-control" id="exampleSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <label>Cursos</label>
+      <select multiple="" class="form-control" [formControl]="alumnoForm.controls['cursos']">
+          <option *ngFor="let c of cursoLista" [value]="c.id">{{c.titulo}}</option>
       </select>
     </div>
     </fieldset>
   </div>
+  <button type="submit" [disabled]="alumnoForm.invalid">Enviar</button>
 </form>

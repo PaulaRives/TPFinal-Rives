@@ -42,5 +42,5 @@ var curso = <ICurso>{id: 22,
                       
 var alumno = <IAlumno>{nombre: 'Paula',
                       apellido: 'Rives', 
-                      cursos: [curso], };
+                      cursos: [0], };
 

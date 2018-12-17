@@ -9,5 +9,5 @@ export interface ICurso {
     profesor: Array<string>;
     laboratorio: number;
     estado: Estado;
-    valorCuota: Number;
+    precio: Number;
 }

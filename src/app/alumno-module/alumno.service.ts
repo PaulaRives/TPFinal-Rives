@@ -14,6 +14,12 @@ export class AlumnoService {
   constructor(private http: HttpClient) {
   }
 
+  private obtenerNombreCompleto(alumnos: IAlumno[]): IAlumno[] {
+    alumnos.forEach(a => a._nombreCompleto = a.nombre + ' ' + a.apellido)
+    return alumnos;
+  }
+
+  
   private getAllAlumnos(): Observable<IAlumno[]> {
     return this.http.get<IAlumno[]>(this.configUrl);
   }
@@ -25,6 +31,14 @@ export class AlumnoService {
 
   getAlumnosTotal(): Observable<number> {
     return this.getAllAlumnos().pipe(count());
+  }
+
+  getAlumnosNombreCompleto() : Observable<IAlumno[]> {
+    return this.getAllAlumnos().pipe(map(r => this.obtenerNombreCompleto(r)));
+  }
+
+  getAlumnosSegunCurso(cursoId: number) : Observable<IAlumno[]>  {
+    return this.getAlumnosNombreCompleto().pipe(map(r => r.filter(r => r.cursos.find(c => c == cursoId))));
   }
 }
 
