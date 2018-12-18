@@ -32,7 +32,7 @@ export class AlumnoListComponent implements OnInit {
   }
 
   getAlumnosTotal(): void {
-    this.alumnoService.getAlumnos().subscribe(n => this.alumnosTotal = n.length);
+    this.alumnoService.getAlumnosNombreCompleto().subscribe(n => this.alumnosTotal = n.length);
   }
 
   filtrarAlumnosPorCurso(value): void {

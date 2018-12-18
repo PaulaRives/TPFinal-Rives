@@ -23,11 +23,8 @@
     <div class="form-group">
       <label for="exampleSelect1">Tipo de Documento</label>
       <select class="form-control" [formControl]="alumnoForm.controls['tipoDocumento']" placeholder="Seleccionar...">
-        <option value="0">DNI</option>
-        <option value="1">LC</option>
-        <option value="2">LE</option>
-        <option value="3">Pasaporte</option>
-        <option value="4">CI</option>
+          <option value="">Seleccionar...</option>
+          <option *ngFor="let i of tipoDocumentoLista" [value]="i.value">{{i.text}}</option>
       </select>
       <div *ngIf="tipoDocumento.touched && tipoDocumento.invalid" class="invalid-feedback">El tipo de documento es requerido</div>
     </div>
@@ -55,7 +52,13 @@
       </select>
       <div *ngIf="cursos.touched && cursos.invalid" class="invalid-feedback">Al menos un curso es requerido</div>
     </div>
-    </fieldset>
+    <div class="form-group">
+      <fieldset>
+        <label class="control-label" for="readOnlyInput">Total a Pagar:t</label>
+        <input class="form-control" type="text"  [formControl]="alumnoForm.controls['valorCuota']" readonly="">
+      </fieldset>
+    </div>
+  </fieldset>
     <button type="submit" class="btn btn-primary" [disabled]="alumnoForm.invalid">Enviar</button>
   </div>
   

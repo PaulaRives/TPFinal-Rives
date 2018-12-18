@@ -11,4 +11,5 @@ export interface IAlumno {
     comunidad: boolean,
     legajo: string,
     cursos: Array<number>
+    _valorCuota: number;
 }

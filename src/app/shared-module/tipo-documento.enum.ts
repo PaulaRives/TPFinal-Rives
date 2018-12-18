@@ -1,7 +1,7 @@
 export enum TipoDocumento {
-    dni = "DNI",
-    ci = "CI",
-    le = "LE",
-    pasaportte = "Pasaporte",
-    lc = "LC"
+    DNI = "DNI",
+    CI = "CI",
+    LE = "LE",
+    Pasaporte = "Pasaporte",
+    LC = "LC"
 }

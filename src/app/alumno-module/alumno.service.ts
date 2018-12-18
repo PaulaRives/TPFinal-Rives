@@ -22,39 +22,39 @@ export class AlumnoService {
     return alumnos;
   }
 
-  
+  // GET alumnos
   private getAllAlumnos(): Observable<IAlumno[]> {
     return this.http.get<IAlumno[]>(this.getUrl);
   }
 
-
-  getAlumnos(): Observable<IAlumno[]> {
-    return this.getAllAlumnos();
-  }
-
+  // obtiene todos los alumnos y crea la propedad nombre y apellido
   getAlumnosNombreCompleto() : Observable<IAlumno[]> {
-    return this.getAlumnos().pipe(map(r => this.obtenerNombreCompleto(r)));
+    return this.getAllAlumnos().pipe(map(r => this.obtenerNombreCompleto(r)));
   }
 
+  // ontiene todos los alumnos y filtra segun curso
   getAlumnosSegunCurso(cursoId: number) : Observable<IAlumno[]>  {
     return this.getAlumnosNombreCompleto().pipe(map(r => r.filter(r => r.cursos.find(c => c == cursoId))));
   }
 
+  // obtiene un alumno segun dni
   getAlumnno(alumnoId: string) :Observable<IAlumno[]> {
-    return this.getAlumnos().pipe(map(res => res.filter(r => r.documento === alumnoId)));
+    return this.getAllAlumnos().pipe(map(res => res.filter(r => r.documento === alumnoId)));
   }
 
-  postAlumno(alumno) : Observable<any> { {
-      return this.http.post<IAlumno>(this.postPutDeleteUrl, alumno)
-      .pipe(catchError(error => of(`Bad Promise: ${error}`)))
-    }
+  // POST alumno
+  postAlumno(alumno) : Observable<any> { 
+      return this.http.post<IAlumno>(this.postPutDeleteUrl, alumno).pipe(catchError(error => of(`Bad Promise: ${error}`)));
   }
 
+  // PUT alumno
+  putAlumno(alumno) : Observable<any> { 
+    return this.http.put<IAlumno>(this.postPutDeleteUrl, alumno).pipe(catchError(error => of(`Bad Promise: ${error}`)));
+  }
+
+  // DELETE alumno
   deleteAlumno(alumno): Observable<any>  {
-    return this.http.delete(this.postPutDeleteUrl, alumno )
-      .pipe(
-        catchError(error => of(`Bad Promise: ${error}`))
-      );
+    return this.http.delete(this.postPutDeleteUrl, alumno ).pipe(catchError(error => of(`Bad Promise: ${error}`)));
   }
 }
 
