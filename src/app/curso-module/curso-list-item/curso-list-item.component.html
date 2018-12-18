@@ -1,7 +1,7 @@
 <a routerLink="/curso/{{curso.id}}">{{curso.titulo}}</a>
 <div>
   <span class="text-curso">Cambiar estado: </span>
-  <select (change)="cambiarEstado($event)">
+  <select class="custom-select" (change)="cambiarEstado($event)">
     <option value="0">Pendiente</option>
     <option value="1">Activo</option>
     <option value="2">Inactivo</option>
