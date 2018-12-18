@@ -5,10 +5,10 @@ export interface IAlumno {
     _nombreCompleto: string,
     nombre :string,
     apellido: string
-    fechaNacimiento: Date,
+    fechaNacimiento: string,
     tipoDocumento: TipoDocumento
-    numeroDocumento: string,
+    documento: string,
     comunidad: boolean,
-    numeroLegajo: string,
+    legajo: string,
     cursos: Array<number>
 }

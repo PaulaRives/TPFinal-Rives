@@ -1,0 +1,17 @@
+.invalid-feedback {
+    display:  unset !important;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+
+  input.ng-invalid.ng-touched {
+    border: 1px solid #dc3545;
+
+  }
+
+  input.ng-valid {
+    border: 1px solid #28a745;
+
+  }

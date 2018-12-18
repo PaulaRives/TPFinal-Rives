@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IAlumno } from '../ialumno';
 
 
@@ -11,9 +11,17 @@ import { IAlumno } from '../ialumno';
 export class AlumnoListItemComponent implements OnInit {
 
   @Input() alumno: IAlumno;
+  @Output() borrarAlumno= new EventEmitter;
 
 
   constructor() { }
+
+  clickMethod(alumno: IAlumno) {
+    if(confirm("¿Seguro que desea borrar a "+alumno._nombreCompleto+"?")) {
+      console.log("Implement delete functionality here");
+      this.borrarAlumno.emit(alumno);
+    }
+  }
 
   ngOnInit() {
   }

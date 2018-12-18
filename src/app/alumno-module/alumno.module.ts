@@ -6,14 +6,17 @@ import { CursoModule } from '../curso-module/curso.module';
 import { SharedModule } from '../shared-module/shared.module';
 import { AlumnoListComponent } from './alumno-list/alumno-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AlumnoEditComponent } from './alumno-edit/alumno-edit.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
     CursoModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
 
-  declarations: [AlumnoFormComponent, AlumnoListComponent, AlumnoListItemComponent]
+  declarations: [AlumnoFormComponent, AlumnoListComponent, AlumnoListItemComponent, AlumnoEditComponent]
 })
 export class AlumnoModule { }

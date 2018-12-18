@@ -6,28 +6,35 @@
     <div class="form-group">
       <label for="nombreInput">Nombre</label>
       <input type="text" class="form-control" [formControl]="alumnoForm.controls['nombre']" placeholder="Nombre...">
+      <div *ngIf="nombre.touched && nombre.invalid" class="invalid-feedback">El nombre es requerido
+      </div>
     </div>
     <div class="form-group">
       <label for="apellidoInput">Apellido</label>
       <input type="text" class="form-control" [formControl]="alumnoForm.controls['apellido']" placeholder="Apellido...">
+      <div *ngIf="apellido.touched && apellido.invalid" class="invalid-feedback">El apellido es requerido
+        </div>
     </div>
     <div class="form-group">
       <label for="fnacput">Fecha de Nacimiento</label>
-      <input type="date" class="form-control" [formControl]="alumnoForm.controls['fechaNacimiento']" placeholder="Email...">
+      <input type="date" class="form-control" [formControl]="alumnoForm.controls['fechaNacimiento']" placeholder="Fecha de Nacimiento...">
+      <div *ngIf="fechaNacimiento.touched && fechaNacimiento.invalid" class="invalid-feedback">La fecha de nacimiento es requerida</div>
     </div>
     <div class="form-group">
       <label for="exampleSelect1">Tipo de Documento</label>
       <select class="form-control" [formControl]="alumnoForm.controls['tipoDocumento']" placeholder="Seleccionar...">
-        <option>DNI</option>
-        <option>LC</option>
-        <option>LE</option>
-        <option>Pasaporte</option>
-        <option>CI</option>
+        <option value="0">DNI</option>
+        <option value="1">LC</option>
+        <option value="2">LE</option>
+        <option value="3">Pasaporte</option>
+        <option value="4">CI</option>
       </select>
+      <div *ngIf="tipoDocumento.touched && tipoDocumento.invalid" class="invalid-feedback">El tipo de documento es requerido</div>
     </div>
     <div class="form-group">
       <label for="docInput">Numero de Documento</label>
-      <input type="number" class="form-control" [formControl]="alumnoForm.controls['numeroDocumento']" placeholder="Numero de Documento...">
+      <input type="number" class="form-control" [formControl]="alumnoForm.controls['documento']" placeholder="Numero de Documento...">
+      <div *ngIf="documento.touched && documento.invalid" class="invalid-feedback">El numero de documento es requerido</div>
     </div>
       <div class="form-check form-group">
         <label class="form-check-label">
@@ -37,15 +44,19 @@
       </div>
     <div class="form-group">
         <label for="legajoInput">Numero de Legajo</label>
-        <input type="number" class="form-control" [formControl]="alumnoForm.controls['legajo']" placeholder="Legajo...">
+        <input type="text" class="form-control" [formControl]="alumnoForm.controls['legajo']" placeholder="Legajo...">
+        <div *ngIf="legajo.touched && legajo.invalid" class="invalid-feedback">El numero de legajo es requerido</div>
+        <div *ngIf="legajo.errors && legajo.errors.invalidLeg" class="invalid-feedback">El formato del legajo debe ser xxxxxx-xx</div>
       </div>
     <div class="form-group">
       <label>Cursos</label>
       <select multiple="" class="form-control" [formControl]="alumnoForm.controls['cursos']">
           <option *ngFor="let c of cursoLista" [value]="c.id">{{c.titulo}}</option>
       </select>
+      <div *ngIf="cursos.touched && cursos.invalid" class="invalid-feedback">Al menos un curso es requerido</div>
     </div>
     </fieldset>
+    <button type="submit" class="btn btn-primary" [disabled]="alumnoForm.invalid">Enviar</button>
   </div>
-  <button type="submit" [disabled]="alumnoForm.invalid">Enviar</button>
+  
 </form>
